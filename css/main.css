@@ -1,0 +1,251 @@
+@import "./reset.css";
+@import "./adaptive.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=B612+Mono:wght@400;700&display=swap');
+
+html, body {
+    font-family: "Inter", sans-serif;
+    transition: background-color 0.9s ease;
+    overflow-x: hidden;
+    background-color: black;
+ 
+
+}
+
+h1 {
+    width: 50%;
+    font-size: 100px;
+    font-family: "Inter", sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 90px;
+    padding-left: 100px;
+    padding-top: 70px;
+    transition: color 0.9s ease; 
+ 
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 300;
+    padding-left: 120px;  
+    transition: color 0.9s ease; 
+    z-index: 1;
+}
+
+h3 {
+    margin-left: 6.5%; 
+    margin-top: 10%;
+    font-size: 40px;
+    font-family: "Inter", sans-serif;
+    font-style: italic;
+}
+
+p {
+     margin-bottom: 30px;
+}
+
+#text {
+    font-family: 'B612 Mono', monospace; 
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 42.53px;
+    animation: blink 0.8s step-end infinite;
+    transition: color 0.3s; 
+    color: rgb(255, 255, 255); 
+    z-index: 0;
+}
+
+.project-button {
+    text-decoration: underline;
+    font-size: 20px; 
+    cursor: pointer; 
+    margin-top: 20px;
+    z-index: 1;
+    font-style: italic;
+  
+    
+}
+
+.project-button:hover {
+    color: rgb(255, 255, 255); /* Цвет подсветки */
+    transform: scale(1.05); /* Небольшое увеличение */
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white; /* Белая тень (свечение) */
+
+   
+}
+
+#vector {
+    position: fixed;
+    top: 45%; /* Пропорционально экрану */
+    left: 90%; /* На правом краю экрана */
+    transform: scale(3.9);
+    overflow: visible;
+    transition: color 0.9s ease, color 0.9s ease;
+}
+
+.avatar {
+    position: fixed;
+    top: -110%;
+    left: 20%;
+    z-index: 1;
+    transform: scale(0.4);
+}
+
+
+#shape {
+    transition: all 0.9s ease; 
+    position: fixed;
+
+ 
+}
+
+.highlight-letter {
+    color: white;
+    mix-blend-mode: difference;
+    position: relative;
+    z-index: 1;
+}
+
+/* Общие стили для SVG */
+#vector2 {
+    position: fixed;
+    top: 25%;
+    z-index: 0;
+    overflow: visible;
+}
+
+/* Анимация для leftPath */
+#leftPath {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: drawLeft 3s forwards ease-out; /* Анимация линии leftPath */
+}
+
+/* Анимация для rightPath */
+#rightPath {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: drawRight 3s forwards ease-out;
+    animation-delay: 0.95s; /* Задержка на время завершения анимации leftPath */
+    opacity: 0;
+}
+
+/* Анимации для отрисовки путей */
+@keyframes drawLeft {
+    from {
+        stroke-dashoffset: 200;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes drawRight {
+    from {
+        stroke-dashoffset: 200;
+        opacity: 1; /* Начинаем с невидимого состояния */
+    }
+    to {
+        stroke-dashoffset: 0;
+        opacity: 1; /* Делаем видимым к концу анимации */
+    }
+}
+
+
+.projects {
+    height: auto;
+    display: flex;
+    flex-direction: column; /* Устанавливаем вертикальное расположение */
+    gap: 100px;
+    align-items: flex-start; /* Прижимаем к левой части */
+    padding-left: 90px; /* Отступ от края для приятного внешнего вида */
+}
+
+.project {
+    width: 30%;
+    height: auto;
+    overflow: hidden;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    border: 2px solid gray; /* Серая обводка вокруг каждого проекта */
+    border-radius: 5px; /* Немного округлим углы */
+    padding: 5px; /* Отступ между изображением и обводкой */
+    z-index: 1;
+}
+
+.project:hover {
+    transform: scale(1.2); 
+}
+
+.project img {
+    width: 100%; /* Изображение подстраивается под размер контейнера */
+    height: auto;
+}
+
+.description {
+    margin-top: -5%; /* Отрицательный отступ сверху для смещения вверх */
+    font-size: 28px;
+    font-weight: 300;
+    font-family: "Inter", sans-serif;
+}
+
+.footer {
+    text-align: left; /* Выравнивание по левому краю */
+    padding: 20px;
+    font-family: "Inter", sans-serif;
+    font-size: 25px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 48.41px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+}
+
+.footer-line {
+    width: 60%; 
+    height: 2px; 
+    background-color: #C9C9C9;
+    margin-bottom: 10px;
+}
+
+
+
+.highlight-letter {
+    position: relative; /* Для корректного позиционирования */ 
+    color: white;
+    z-index: 1;
+    
+}
+
+
+
+.footer a {
+    color: inherit; /* Использует текущий цвет текста */
+    text-decoration: none; /* Убирает стандартное подчеркивание */
+    border-bottom: 1px solid transparent; /* Добавляет нижнюю границу для эффекта наведения */
+    transition: border-color 0.3s;
+}
+
+.footer a:hover {
+    color: rgb(255, 255, 255); /* Цвет подсветки */
+    transform: scale(1.05); /* Небольшое увеличение */
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white; /* Белая тень (свечение) */
+}
+
+
+
+
+
+
+
+
+/* Общие стили для SVG */
+#vector2 {
+    position: fixed;
+    top: 25%;
+    z-index: 0;
+    overflow: visible;
+}
